@@ -1,0 +1,72 @@
+<p>
+  Le directives servono ad applicare su precisi elementi html del template
+  <br>Le directives possono essere create custom
+  <br>Oggi vedremo le directives [ngClass], [ngStyle], *ngFor, *ngIf
+</p>
+
+<p [ngClass]="'verde'">Per inserire delle classi a un elemento usiamo
+  <br>[ngClass]="'Classe1 Classe2'" !!Attenzione a mettere il singolo apice dopo i doppi e come valore VA ASSEGNATA UNA STRINGA
+</p>
+<p [ngClass]="'verde'">Questo p ha le classi definite da una directive</p>
+<p [ngClass]="'arrClassi'">BBBBBBBBBBBBBBBBBBBBB</p>
+<p [ngClass]="{'verde': true, 'rosso': false, 'bold': false}">AAAAAAAAAAAAAAAAAAA</p>
+<p>Posso inserire un oggetto con delle stringhe come proprietà e un boolean per indicare se la classe va inserita o meno</p>
+
+
+<!--                NG STYLE                  -->
+<p [ngStyle]="{'font-size': fontSize + 'px'}">posso indicare una proprietà css nel ngStyle impostando anche proprietà come valori</p>
+<input type="number" [(ngModel)]="fontSize">
+<p [ngStyle]="styleObj">Posso usare anche l'intero oggetto</p>
+
+
+<!--  INPUT E LETTURA VALORI -->
+<form id="editUser">
+  <input type="hidden" id="id">
+  <input type="text" id="name">
+
+  <button type="submit">salva</button>
+</form>
+
+
+<!--         NG IF        -->
+
+<button (click)="isVisible = !isVisible">Mostra/Nascondi</button>
+
+<p *ngIf="isVisible">possiamo decidere di visualizzare o nascondere un elemento del template in base a un controllo condizionale usando
+  <br>*ngIf = "condizione"
+</p>
+
+<p *ngIf="isVisible; else bloccoElse">Possiamo anche indicare una parte di html da visualizzare come else usando
+  <br>*ngIf = "condizione;else elseBlock
+  <br>nell'elemento else indicare #elseBlock
+</p>
+
+<ng-template #bloccoElse>Questo testo comparirà solo se il testo sopra non è visibile</ng-template>
+
+<!--<div *ngIf="isVisible; then bloccoTrue; else bloccoFalse"></div>
+<ng-template #bloccoTrue> è trueeeeee </ng-template>
+<ng-template #bloccoFalse> è falseeeeeeee </ng-template>
+
+
+<ng-template #messaggioSuccesso>
+<p style="color:green"> è andato a buon fine</p>
+</ng-template>
+<ng-template #messaggioErrore>
+
+  <p style="color:red">Errore di caricamento</p>
+</ng-template>-->
+
+
+
+<!--    NG FOR    -->
+<p>Possiamo far generare alla directive più copie di un blocco di codice con
+  <br> *ngFor="let e of arr; index as i; first as firstItem"</p>
+  <br>*ngFor="let e of arr -> genera il blocco per ogni elemento, entro quel tag possiamo usare e come elemento dell'attuale giro del ciclo
+
+
+
+  <ul>
+    <li *ngFor="let e of arr; index as i; first as firstLetter">
+      <span [ngStyle]="{'rosso' : firstLetter}">elemento {{i}} - {{e}}</span>
+    </li>
+  </ul>

@@ -1,0 +1,40 @@
+<p>Property binding -> binding a 1 via
+  <br>Ci permette di visualizzare proprietà del model nel
+  <br>template ->se il model si aggiorna cambia anche la view
+  <br><br>{{testo}}<br>
+  <br>si usa con le graffe
+</p>
+
+
+<p>
+  Event Binding -> binding a 1 via
+  <br>ci permette di osservare eventi sugli elementi della view
+  <br>e associarne un'esecuzione sulla classe (metodo o logica)
+  <button (click)="cambiaTesto()">PROVA EVENT BINDER</button>
+  <br> si usa con le tonde
+</p>
+
+
+<p>
+  DataBinding / Property Binding -> binding a una via, ci permette di usare variabili per decidere il valore di precisi attributi
+  <br>si usa con le quadre
+  <button [disabled]="isDisabled">disattivato</button>
+  <button (click)="isDisabled = !isDisabled">Attiva pulsante</button>
+</p>
+
+<p>
+  Two way Binding -> ci permette di tenere collegate le view e il model.
+  <br>Modifiche alla proprietà nel model modificherà il target nella view,
+  <br>se la view cambia la proprietà cambierà valore nel model
+  <br>
+  Per usare ngModel (per gli input) importare in app.module.ts
+  <br>nell'array imports il modulo FormsModule
+  <br>
+  <!--<input type="text" [value]="inputValue" (input)="inputValue = this.value">-->
+  <!--<tag [(target)]="expression"></tag>-->
+    input:
+  <input type="text" [(ngModel)] = "inputValue">
+  <br> Output:
+  <br>{{inputValue}} <br>
+  <button (click)="reset()">RESETTA IL TESTO</button>
+</p>
